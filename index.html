@@ -4,39 +4,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ABVersalDev</title>
+<title>ABVersalDev — Software, AI & Digital Development</title>
+
+<meta name="description"
+content="ABVersalDev — Software development, AI, web applications, game development, research and digital engineering.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* =========================================================
    RESET
 ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    background: #050308;
-    color: #fff;
-    overflow-x: hidden;
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#05070a;
+    color:#f5f7fa;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
 }
 
 button,
 input,
-textarea {
-    font: inherit;
+textarea{
+    font:inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#05070a;
+    --bg-soft:#090c11;
+
+    --card:rgba(255,255,255,.035);
+
+    --border:rgba(255,255,255,.09);
+
+    --text:#f5f7fa;
+    --muted:#9299a5;
+
+    --accent:#8ecbff;
+    --accent-strong:#4da3ff;
+
+    --accent-soft:rgba(77,163,255,.12);
+
+    --max-width:1180px;
 }
 
 
@@ -44,45 +82,67 @@ textarea {
    BACKGROUND
 ========================================================= */
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -3;
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
 
     background:
+
         radial-gradient(
             circle at 15% 20%,
-            rgba(126, 34, 206, 0.20),
+            rgba(77,163,255,.08),
             transparent 30%
         ),
+
         radial-gradient(
-            circle at 85% 30%,
-            rgba(168, 85, 247, 0.13),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(88, 28, 135, 0.18),
-            transparent 35%
+            circle at 85% 65%,
+            rgba(92,170,255,.06),
+            transparent 30%
         );
 
-    pointer-events: none;
+    pointer-events:none;
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-4;
 
     background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
 
-    background-size: 60px 60px;
-    mask-image: linear-gradient(to bottom, black, transparent 90%);
-    pointer-events: none;
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 75%
+        );
+
+    pointer-events:none;
 }
 
 
@@ -90,84 +150,115 @@ body::after {
    NAVBAR
 ========================================================= */
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+.navbar{
 
-    width: min(1100px, calc(100% - 30px));
-    margin-top: 15px;
+    position:fixed;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    top:18px;
+    left:50%;
 
-    padding: 14px 20px;
+    transform:translateX(-50%);
 
-    background: rgba(10, 6, 15, 0.72);
-    border: 1px solid rgba(168, 85, 247, 0.18);
-    backdrop-filter: blur(18px);
-
-    border-radius: 18px;
-
-    z-index: 1000;
-
-    box-shadow:
-        0 10px 40px rgba(0,0,0,0.4),
-        inset 0 1px rgba(255,255,255,0.04);
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: #a855f7;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: #b7adbF;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #fff;
-}
-
-.nav-button {
-    padding: 9px 16px;
-
-    border-radius: 10px;
-
-    background: linear-gradient(
-        135deg,
-        #7e22ce,
-        #a855f7
+    width:min(
+        1120px,
+        calc(100% - 30px)
     );
 
-    font-size: 13px;
-    font-weight: 700;
+    padding:14px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:rgba(5,7,10,.72);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:2px;
+
+    z-index:1000;
+
+    transition:.3s;
 
     box-shadow:
-        0 0 20px rgba(168,85,247,0.25);
-
-    transition: 0.3s;
+        0 15px 50px rgba(0,0,0,.35);
 }
 
-.nav-button:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0 30px rgba(168,85,247,0.45);
+.navbar.scrolled{
+
+    background:rgba(5,7,10,.94);
+
+    border-color:
+        rgba(142,203,255,.18);
+}
+
+.logo{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+}
+
+.logo span{
+
+    color:var(--accent);
+}
+
+.nav-links{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+}
+
+.nav-links a{
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+
+    color:white;
+}
+
+.nav-cta{
+
+    padding:9px 16px;
+
+    border-radius:2px;
+
+    background:white;
+
+    color:#080a0d;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    transition:.25s;
+}
+
+.nav-cta:hover{
+
+    transform:translateY(-2px);
+
+    background:var(--accent);
 }
 
 
@@ -175,509 +266,925 @@ body::after {
    HERO
 ========================================================= */
 
-.hero {
-    min-height: 100vh;
+.hero{
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height:100vh;
 
-    padding: 120px 20px 80px;
+    position:relative;
 
-    position: relative;
-}
+    display:flex;
 
-.hero-content {
-    max-width: 950px;
-    text-align: center;
-}
+    align-items:center;
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    justify-content:center;
 
-    padding: 8px 14px;
+    text-align:center;
 
-    border-radius: 100px;
+    padding:
+        140px 20px
+        100px;
 
-    background: rgba(168,85,247,0.08);
-    border: 1px solid rgba(168,85,247,0.2);
+    overflow:hidden;
 
-    color: #c084fc;
-
-    font-size: 13px;
-    margin-bottom: 28px;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #c084fc;
-
-    box-shadow:
-        0 0 12px #c084fc;
-}
-
-.hero h1 {
-    font-size: clamp(48px, 8vw, 92px);
-    line-height: 0.95;
-    letter-spacing: -5px;
-    font-weight: 900;
-
-    margin-bottom: 28px;
-}
-
-.gradient-text {
     background:
+
         linear-gradient(
-            90deg,
-            #c084fc,
-            #a855f7,
-            #7e22ce,
-            #d8b4fe
-        );
-
-    background-size: 300% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    animation: gradientMove 6s linear infinite;
-}
-
-@keyframes gradientMove {
-    to {
-        background-position: 300% center;
-    }
-}
-
-.hero p {
-    max-width: 680px;
-    margin: auto;
-
-    color: #aaa0b3;
-
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.hero-actions {
-    margin-top: 35px;
-
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-
-    flex-wrap: wrap;
-}
-
-.primary-btn,
-.secondary-btn {
-    padding: 14px 22px;
-    border-radius: 12px;
-
-    font-weight: 700;
-    font-size: 14px;
-
-    transition: 0.3s;
-}
-
-.primary-btn {
-    background:
-        linear-gradient(
-            135deg,
-            #7e22ce,
-            #a855f7
-        );
-
-    box-shadow:
-        0 10px 35px rgba(126,34,206,0.3);
-}
-
-.primary-btn:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 15px 45px rgba(168,85,247,0.4);
-}
-
-.secondary-btn {
-    border: 1px solid #302337;
-    background: rgba(255,255,255,0.025);
-    color: #ddd;
-}
-
-.secondary-btn:hover {
-    border-color: #7e22ce;
-    background: rgba(126,34,206,0.08);
-}
-
-
-/* =========================================================
-   GLOW
-========================================================= */
-
-.hero-glow {
-    position: absolute;
-
-    width: 450px;
-    height: 450px;
-
-    border-radius: 50%;
-
-    background: #7e22ce;
-
-    filter: blur(180px);
-
-    opacity: 0.10;
-
-    z-index: -1;
-
-    animation: pulse 5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    50% {
-        transform: scale(1.2);
-        opacity: 0.16;
-    }
-}
-
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section {
-    padding: 100px 20px;
-}
-
-.container {
-    width: min(1100px, 100%);
-    margin: auto;
-}
-
-.section-heading {
-    margin-bottom: 50px;
-}
-
-.eyebrow {
-    color: #a855f7;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-.section-heading h2 {
-    font-size: clamp(32px, 5vw, 52px);
-    letter-spacing: -2px;
-}
-
-.section-heading p {
-    color: #8f8596;
-    margin-top: 12px;
-    max-width: 600px;
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 25px;
-}
-
-.glass-card {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid rgba(168,85,247,0.13);
-
-    border-radius: 22px;
-
-    padding: 30px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.25);
-
-    backdrop-filter: blur(15px);
-}
-
-.about-text {
-    color: #aaa0b3;
-    line-height: 1.9;
-    font-size: 15px;
-}
-
-.about-text strong {
-    color: #d8b4fe;
-}
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.skill {
-    padding: 8px 12px;
-
-    border-radius: 8px;
-
-    background: rgba(168,85,247,0.07);
-    border: 1px solid rgba(168,85,247,0.14);
-
-    color: #c4b5fd;
-
-    font-size: 12px;
-}
-
-.stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.stat {
-    padding: 22px;
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.025);
-
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.stat h3 {
-    font-size: 30px;
-    color: #c084fc;
-}
-
-.stat p {
-    color: #827887;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-
-/* =========================================================
-   VIDEOS
-========================================================= */
-
-.video-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 22px;
-}
-
-.video-card {
-    background: #111;
-    border-radius: 14px;
-    overflow: hidden;
-    width: 320px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-}
-
-.video-wrapper {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-}
-
-.video-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.video-wrapper:hover img {
-    transform: scale(1.05);
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.9);
-    color: #111;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 22px;
-    padding-left: 3px;
-}
-
-.video-info {
-    padding: 16px;
-    color: white;
-}
-
-.video-info h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-}
-
-.video-info p {
-    margin: 0;
-    color: #aaa;
-    font-size: 14px;
-}
-
-/* =========================================================
-   PROJECTS
-========================================================= */
-
-.projects {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.project {
-    padding: 26px;
-
-    min-height: 220px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(126,34,206,0.09),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid rgba(168,85,247,0.13);
-
-    transition: 0.3s;
-}
-
-.project:hover {
-    transform: translateY(-6px);
-
-    border-color:
-        rgba(168,85,247,0.35);
-}
-
-.project-icon {
-    width: 45px;
-    height: 45px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 12px;
-
-    margin-bottom: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #581c87,
-            #a855f7
-        );
-
-    font-size: 20px;
-}
-
-.project h3 {
-    margin-bottom: 10px;
-}
-
-.project p {
-    color: #8d8392;
-
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-wrapper {
-    position: relative;
-
-    overflow: hidden;
-
-    text-align: center;
-
-    padding: 70px 30px;
-
-    border-radius: 28px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(126,34,206,0.18),
-            transparent 65%
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.80)
         ),
 
-        rgba(255,255,255,0.025);
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85");
 
-    border: 1px solid rgba(168,85,247,0.16);
+    background-size:cover;
+
+    background-position:center;
 }
 
-.contact-wrapper h2 {
-    font-size: clamp(32px, 5vw, 55px);
-    letter-spacing: -2px;
+
+/* cinematic black overlay */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.75)
+        );
+
+    pointer-events:none;
 }
 
-.contact-wrapper p {
-    color: #918696;
 
-    max-width: 560px;
+/* subtle blue light */
 
-    margin: 15px auto 30px;
+.hero::after{
 
-    line-height: 1.7;
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:2px;
+
+    background:
+        rgba(77,163,255,.10);
+
+    filter:blur(180px);
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
 }
 
-.contact-email {
-    display: inline-block;
+.hero-content{
 
-    color: #c084fc;
+    position:relative;
 
-    margin-top: 15px;
+    z-index:2;
 
-    font-weight: 700;
+    width:min(
+        950px,
+        100%
+    );
+}
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 14px;
+
+    margin-bottom:28px;
+
+    border:1px solid
+        rgba(142,203,255,.22);
+
+    background:
+        rgba(77,163,255,.07);
+
+    border-radius:2px;
+
+    color:#b8dcfa;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+}
+
+.hero-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:2px;
+
+    background:var(--accent);
+
+    box-shadow:
+        0 0 15px var(--accent);
+}
+
+.hero h1{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(48px,8vw,92px);
+
+    line-height:.96;
+
+    letter-spacing:-5px;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+
+    color:var(--accent);
+}
+
+.hero-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#b4bac3;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+.hero-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:36px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 22px;
+
+    border-radius:2px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btn-primary{
+
+    background:white;
+
+    color:#05070a;
+}
+
+.btn-primary:hover{
+
+    background:var(--accent);
+
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+
+    border:1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:white;
+}
+
+.btn-secondary:hover{
+
+    background:
+        rgba(255,255,255,.09);
+
+    transform:translateY(-3px);
+}
+
+
+/* scroll indicator */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+
+    padding:110px 20px;
+}
+
+.container{
+
+    width:min(
+        var(--max-width),
+        100%
+    );
+
+    margin:auto;
+}
+
+.section-header{
+
+    max-width:700px;
+
+    margin-bottom:55px;
+}
+
+.eyebrow{
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    margin-bottom:14px;
+}
+
+.section-header h2{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(34px,5vw,58px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+}
+
+.section-header p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    margin-top:18px;
+}
+
+
+/* =========================================================
+   INTRO / DISCUSSION
+========================================================= */
+
+.intro{
+
+    background:
+        linear-gradient(
+            to bottom,
+            #05070a,
+            #080b10
+        );
+}
+
+.intro-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap:30px;
+
+    align-items:stretch;
+}
+
+.intro-main{
+
+    padding:40px;
+
+    border-radius:2px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+}
+
+.intro-main h3{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:30px;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:20px;
+}
+
+.intro-main p{
+
+    color:#9da4ae;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+}
+
+.intro-main strong{
+
+    color:#dcefff;
+}
+
+.intro-side{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+}
+
+.info-box{
+
+    padding:25px;
+
+    border-radius:2px;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+}
+
+.info-number{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    color:var(--accent);
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+.info-box h4{
+
+    font-size:14px;
+
+    margin-bottom:8px;
+}
+
+.info-box p{
+
+    color:#747c87;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+
+    background:#07090d;
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.service{
+
+    position:relative;
+
+    min-height:250px;
+
+    padding:30px;
+
+    border-radius:2px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.service::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+
+    height:160px;
+
+    border-radius:2px;
+
+    background:
+        rgba(77,163,255,.08);
+
+    filter:blur(60px);
+
+    top:-90px;
+
+    right:-70px;
+}
+
+.service:hover{
+
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(142,203,255,.30);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+}
+
+.service-icon{
+
+    width:48px;
+
+    height:48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:2px;
+
+    background:
+        rgba(77,163,255,.10);
+
+    border:1px solid
+        rgba(142,203,255,.16);
+
+    color:var(--accent);
+
+    font-weight:800;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+}
+
+.service h3{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:12px;
+}
+
+.service p{
+
+    color:#858d98;
+
+    font-size:13px;
+
+    line-height:1.75;
+}
+
+.service-link{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:#b9ddfa;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   GIGS
+========================================================= */
+
+.gigs{
+
+    background:#05070a;
+}
+
+.gigs-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:35px;
+
+    align-items:center;
+}
+
+.gigs-copy h2{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(34px,5vw,58px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    margin-bottom:20px;
+}
+
+.gigs-copy p{
+
+    color:#8e96a1;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    max-width:480px;
+}
+
+.gig-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.gig{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:20px 22px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.025);
+
+    border-radius:2px;
+
+    transition:.25s;
+}
+
+.gig:hover{
+
+    background:
+        rgba(77,163,255,.06);
+
+    border-color:
+        rgba(142,203,255,.22);
+
+    transform:translateX(5px);
+}
+
+.gig-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.gig-icon{
+
+    width:36px;
+    height:36px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:2px;
+
+    background:
+        rgba(77,163,255,.10);
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.gig h4{
+
+    font-size:14px;
+
+    margin-bottom:4px;
+}
+
+.gig p{
+
+    color:#717985;
+
+    font-size:11px;
+}
+
+.gig-arrow{
+
+    color:#66717e;
+
+    font-size:18px;
+}
+
+
+/* =========================================================
+   BLOGS / RELATED SITES
+========================================================= */
+
+.blogs{
+
+    background:#080b10;
+}
+
+.blog-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.blog-card{
+
+    position:relative;
+
+    min-height:230px;
+
+    padding:30px;
+
+    border-radius:2px;
+
+    border:1px solid var(--border);
+
+    background:#0b0f15;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.blog-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(142,203,255,.25);
+}
+
+.blog-number{
+
+    color:#3f4853;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+}
+
+.blog-card h3{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+.blog-card p{
+
+    color:#7f8792;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.blog-link{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:var(--accent);
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   CONTACT CTA
+========================================================= */
+
+.contact{
+
+    padding-top:100px;
+
+    padding-bottom:120px;
+}
+
+.contact-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:
+        80px 30px;
+
+    border-radius:2px;
+
+    border:1px solid
+        rgba(142,203,255,.16);
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(77,163,255,.12),
+            transparent 60%
+        ),
+
+        rgba(255,255,255,.025);
+}
+
+.contact-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:2px;
+
+    background:
+        rgba(77,163,255,.08);
+
+    filter:blur(100px);
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.contact-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.contact-box h2{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:
+        clamp(38px,6vw,70px);
+
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    margin-bottom:20px;
+}
+
+.contact-box p{
+
+    max-width:600px;
+
+    margin:0 auto 30px;
+
+    color:#89919c;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.email{
+
+    display:inline-block;
+
+    color:#b9ddfa;
+
+    font-weight:700;
+
+    font-size:14px;
 
     border-bottom:
-        1px solid rgba(192,132,252,0.3);
+        1px solid
+        rgba(142,203,255,.3);
 
-    padding-bottom: 4px;
+    padding-bottom:5px;
 }
 
 
@@ -685,37 +1192,129 @@ section {
    FOOTER
 ========================================================= */
 
-footer {
-    padding: 35px 20px;
+footer{
 
     border-top:
-        1px solid rgba(255,255,255,0.05);
+        1px solid
+        rgba(255,255,255,.07);
 
-    color: #665e6b;
+    background:#040609;
 
-    font-size: 12px;
+    padding:
+        55px 20px 30px;
 }
 
-.footer-inner {
-    width: min(1100px, 100%);
-    margin: auto;
+.footer-grid{
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width:min(
+        var(--max-width),
+        100%
+    );
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr .7fr .7fr;
+
+    gap:40px;
+
+    padding-bottom:45px;
 }
 
-.socials {
-    display: flex;
-    gap: 18px;
+.footer-brand h3{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:22px;
+
+    margin-bottom:12px;
 }
 
-.socials a {
-    transition: 0.3s;
+.footer-brand h3 span{
+
+    color:var(--accent);
 }
 
-.socials a:hover {
-    color: #c084fc;
+.footer-brand p{
+
+    max-width:360px;
+
+    color:#656d78;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.footer-column h4{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:18px;
+
+    color:#c4cad2;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#69717c;
+
+    font-size:12px;
+
+    margin-bottom:11px;
+
+    transition:.2s;
+}
+
+.footer-column a:hover{
+
+    color:var(--accent);
+}
+
+.footer-bottom{
+
+    width:min(
+        var(--max-width),
+        100%
+    );
+
+    margin:auto;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    color:#505762;
+
+    font-size:11px;
+}
+
+.socials{
+
+    display:flex;
+
+    gap:18px;
+}
+
+.socials a:hover{
+
+    color:var(--accent);
 }
 
 
@@ -723,466 +1322,671 @@ footer {
    MOBILE
 ========================================================= */
 
-@media (max-width: 850px) {
+@media(max-width:900px){
 
-    .nav-links {
-        display: none;
+    .nav-links{
+
+        display:none;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
+    .intro-grid,
+    .gigs-wrapper{
+
+        grid-template-columns:1fr;
     }
 
-    .video-grid,
-    .projects {
-        grid-template-columns: 1fr 1fr;
+    .services-grid{
+
+        grid-template-columns:
+            1fr 1fr;
     }
 
-    .hero h1 {
-        letter-spacing: -3px;
+    .blog-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    section{
+
+        padding:
+            80px 16px;
+    }
+
+    .navbar{
+
+        top:10px;
+
+        width:
+            calc(100% - 20px);
+    }
+
+    .nav-cta{
+
+        display:none;
+    }
+
+    .hero{
+
+        padding:
+            120px 18px 80px;
+    }
+
+    .hero h1{
+
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+
+        font-size:15px;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .intro-main{
+
+        padding:25px;
+    }
+
+    .intro-side{
+
+        grid-template-columns:1fr;
+    }
+
+    .services-grid,
+    .blog-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .service{
+
+        min-height:auto;
+    }
+
+    .gigs-copy{
+
+        margin-bottom:15px;
+    }
+
+    .gig{
+
+        padding:17px;
+    }
+
+    .gig-arrow{
+
+        display:none;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start;
+    }
+
+    .contact-box{
+
+        padding:
+            60px 20px;
+    }
+
+    .contact-box h2{
+
+        letter-spacing:-2px;
     }
 }
 
-@media (max-width: 600px) {
-
-    .navbar {
-        width: calc(100% - 20px);
-    }
-
-    .nav-button {
-        display: none;
-    }
-
-    section {
-        padding: 75px 16px;
-    }
-
-    .video-grid,
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hero-actions a {
-        text-align: center;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
 </style>
 </head>
 
 
 <body>
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="navbar">
-
-    <a href="#home" class="logo">
-        AB<span>Versal</span>
-    </a>
-
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#videos">Videos</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <a href="#contact" class="nav-button">
-        Let's Talk
-    </a>
-
-</nav>
-
-
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<main>
-
-<section class="hero" id="home">
-
-    <div class="hero-glow"></div>
+<header class="hero" id="home">
 
     <div class="hero-content">
 
-        <div class="hero-badge">
-            <span class="status-dot"></span>
-            Building things with code
-        </div>
+    
 
         <h1>
-            Development
-            <br>
-            <span class="gradient-text">
-                Meets
-            </span>
-            <br>
-            Creativity!
+
+            AB
+            
+
+            <span>Versal</span>
+
+            .Dev
+
         </h1>
 
-        <p>
-            Our Team enjoys
-            building intelligent systems, acknowledged with graphics usage,
-            game development, web applications and loves exploring how
-            software works under the hood.
+
+        <p class="hero-description">
+
+            A software development and technology
+            space focused on building web applications, intelligent
+            systems, experimental games, developer tools and
+            exploring ideas through code.
+
         </p>
+
 
         <div class="hero-actions">
 
-            <a href="#videos" class="primary-btn">
-                Explore My Work
+            <a
+                href="#services"
+                class="btn btn-primary"
+            >
+                Explore Services
             </a>
 
-            <a href="#contact" class="secondary-btn">
-                Get In Touch
+            <a
+                href="#blogs"
+                class="btn btn-secondary"
+            >
+                Explore Our Work
             </a>
 
         </div>
 
     </div>
 
-</section>
+
+    <div class="scroll-indicator">
+        Scroll to explore
+    </div>
+
+</header>
+
+
+<main>
 
 
 <!-- =====================================================
-     ABOUT
+     ABOUT / DISCUSSION
 ===================================================== -->
 
-<section id="about">
+<section class="intro" id="about">
 
 <div class="container">
 
-    <div class="section-heading">
+    <div class="section-header">
 
         <div class="eyebrow">
-            About Us
+            About ABVersalDev
         </div>
 
         <h2>
-            What we do and what we enjoy building?
-        </h2>
-
-        
-    </div>
-
-
-    <div class="about-grid">
-
-        <div class="glass-card">
-
-<p class="about-text">
-
-    We are a <strong>software engineering team</strong> focused on
-    designing and developing systems across
-    <strong>AI/ML, NLP, full-stack development, graphics, and game technology</strong>.
-
-    <br><br>
-
-    Our work involves <strong>machine learning pipelines, intelligent information
-    processing, REST APIs, databases, distributed application architectures,
-    real-time graphics, and performance-oriented programming</strong>.
-
-    <br><br>
-
-    We approach engineering from the system level — analyzing problems,
-    designing architectures, implementing algorithms, optimizing performance,
-    and transforming experimental ideas into <strong>functional software systems</strong>.
-
-</p>
-            <div class="skills">
-
-                <span class="skill">Python</span>
-                <span class="skill">C</span>
-                <span class="skill">C++</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">React</span>
-                <span class="skill">Node.js</span>
-                <span class="skill">Next.js</span>
-                <span class="skill">Nest.js</span>
-				<span class="skill">Vue.js</span>
-                <span class="skill">AI / ML</span>
-                <span class="skill">NLP</span>
-                <span class="skill">Raylib</span>
-                <span class="skill">Three.js</span>
-                <span class="skill">SQL</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="glass-card">
-
-            <div class="stat-grid">
-
-                <div class="stat">
-                    <h3>AI</h3>
-                    <p>Machine Learning & NLP</p>
-                </div>
-
-                <div class="stat">
-                    <h3>C/C++</h3>
-                    <p>Systems & Game Development</p>
-                </div>
-
-                <div class="stat">
-                    <h3>Web</h3>
-                    <p>Full Stack Applications</p>
-                </div>
-
-                <div class="stat">
-                    <h3>3D</h3>
-                    <p>Graphics & Game Projects</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     VIDEOS
-===================================================== -->
-
-<section id="videos">
-
-<div class="container">
-
-    <div class="section-heading">
-
-        <div class="eyebrow">
-            YouTube Videos
-        </div>
-
-        <h2>
-            Tutorials For Learning.
+            Software is more than
+            just writing code.
         </h2>
 
         <p>
-            For spreading the knowledge of Software Dev tools and spreading some tech insights .
+            We enjoy understanding the problem first,
+            then building the technology around it.
         </p>
 
     </div>
 
 
-    <div class="video-grid">
-
-
-        <!-- VIDEO 1 -->
-
-        <article class="video-card">
-
-    <a href="https://youtu.be/Q0l0T6Gqh3U" target="_blank" class="video-wrapper">
-        <img 
-            src="https://diceus.com/wp-content/uploads/2023/05/img_1-300x254.png"
-            alt="Building a Project"
-        >
-
-        <div class="play-button">▶</div>
-    </a>
-
-    <div class="video-info">
-        <h3>C++ Task </h3>
-        <p>Procedural walkthrough and technical exploration.</p>
-    </div>
-
-</article>
-
-    <article class="video-card">
-
-    <a href="https://youtu.be/AGfqCsk-C7k" target="_blank" class="video-wrapper">
-        <img 
-            src="https://i.ytimg.com/vi/48JlgiBpw_I/maxresdefault.jpg"
-            alt="Building a Project"
-        >
-
-        <div class="play-button">▶</div>
-    </a>
-
-    <div class="video-info">
-        <h3>Intro to Emacs</h3>
-        <p>Basic tips for using Emacs For Software Dev</p>
-    </div>
-
-</article>
-
-
-
-
-
-
-        <article class="video-card">
-
-    <a href="https://youtu.be/HNjKCGPV76Y" target="_blank" class="video-wrapper">
-        <img 
-            src="https://miro.medium.com/v2/resize:fit:1400/0*yF74S0nBNodBXthn"
-            alt="Building a Project"
-        >
-
-        <div class="play-button">▶</div>
-    </a>
-
-    <div class="video-info">
-        <h3>Ecom UI through Gen AI</h3>
-        <p>Procedural walkthrough and technical exploration.</p>
-    </div>
-
-</article>
-
-
-
-
-    </div>
-
+    
 </div>
 
 </section>
 
 
 <!-- =====================================================
-     PROJECTS
+     SERVICES
 ===================================================== -->
 
-<section id="projects">
+<section class="services" id="services">
 
 <div class="container">
 
-    <div class="section-heading">
+    <div class="section-header">
 
         <div class="eyebrow">
-            Projects
+            Gigs & Services
         </div>
 
         <h2>
-            Our Work
+            Things we can build
+            for you.
         </h2>
+
+        <p>
+            Have a project in mind? These are some of
+            the areas where we can help turn an idea
+            into a working product.
+        </p>
 
     </div>
 
 
-    <div class="projects">
+    <div class="services-grid">
 
 
-        <div class="project">
+        <article class="service">
 
-            <div class="project-icon">
+            <div class="service-icon">
                 AI
             </div>
 
             <h3>
-                AI & NLP Systems
+                AI & Machine Learning
             </h3>
 
             <p>
-                Machine learning and NLP systems for intelligent
-                analysis, classification and information processing.
+                Build machine learning pipelines,
+                classifiers, synthetic datasets, integrating AI applications to Websites.
+                
             </p>
 
-        </div>
+            <a href="#contact" class="service-link">
+                Discuss a project →
+            </a>
+
+        </article>
 
 
-        <div class="project">
+        <article class="service">
 
-            <div class="project-icon">
+            <div class="service-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                Full-Stack Development
+            </h3>
+
+            <p>
+                Build responsive web applications,
+                dashboards, APIs, authentication
+                systems and database-driven platforms.
+            </p>
+
+            <a href="#contact" class="service-link">
+                Discuss a project →
+            </a>
+
+        </article>
+
+
+        <article class="service">
+
+            <div class="service-icon">
                 3D
             </div>
 
             <h3>
-                Game Worlds
+                Game Development
             </h3>
 
             <p>
-                Experimental 3D environments, procedural terrain,
-                voxel worlds and game systems using C and graphics libraries.
+                3D and 2D games in threeJs and WebGL.
             </p>
 
-        </div>
+            <a href="#contact" class="service-link">
+                Discuss a project →
+            </a>
 
+        </article>
+        <article class="service">
 
-        <div class="project">
-
-            <div class="project-icon">
-             &lt;&#47;&gt;
+            <div class="service-icon">
+                WEB 
             </div>
 
             <h3>
-                Full Stack
+                Landing Pages & Sites
             </h3>
 
             <p>
-                Web applications using modern frontend and backend
-                technologies, APIs, databases and authentication.
+                Modern responsive websites and landing
+                pages designed for developers, creators,
+                startups and technology projects.
+            </p>
+
+            <a href="#contact" class="service-link">
+                Discuss a project →
+            </a>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GIGS
+===================================================== -->
+
+<section class="gigs" id="gigs">
+
+<div class="container">
+
+    <div class="gigs-wrapper">
+
+
+        <div class="gigs-copy">
+
+            <div class="eyebrow">
+                Available Gigs
+            </div>
+
+            <h2>
+                Need something
+                built?
+            </h2>
+
+            <p>
+
+                Whether you need a small website,
+                a technical prototype, an API,
+                an AI experiment or help turning
+                an idea into software, let's talk
+                about what you're trying to build.
+
             </p>
 
         </div>
 
 
-        <div class="project">
+        <div class="gig-list">
 
-            <div class="project-icon">
-                C
+
+            <a href="#contact" class="gig">
+
+                <div class="gig-left">
+
+                    <div class="gig-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Website Development
+                        </h4>
+
+                        <p>
+                            Responsive modern websites
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="gig-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#contact" class="gig">
+
+                <div class="gig-left">
+
+                    <div class="gig-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            AI / ML Prototype
+                        </h4>
+
+                        <p>
+                            Models, datasets and experiments
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="gig-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#contact" class="gig">
+
+                <div class="gig-left">
+
+                    <div class="gig-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Backend / API
+                        </h4>
+
+                        <p>
+                            Servers, APIs and databases
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="gig-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#contact" class="gig">
+
+                <div class="gig-left">
+
+                    <div class="gig-icon">
+                        04
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Technical Consultation
+                        </h4>
+
+                        <p>
+                            Architecture and development guidance
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="gig-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     BLOGS / RELATED SITES
+===================================================== -->
+
+<section class="blogs" id="blogs">
+
+<div class="container">
+
+    <div class="section-header">
+
+        <div class="eyebrow">
+            Related Blogs & Sites
+        </div>
+
+        <h2>
+            Explore our Deployed Projects!
+        </h2>
+
+        <p>
+            We build refactored and customizable apps according to Your Needs.
+        </p>
+
+    </div>
+
+
+    <div class="blog-grid">
+
+
+        <article class="blog-card">
+
+            <div class="blog-number">
+                01
             </div>
 
             <h3>
-                Systems Programming
+                BlogSpieler
             </h3>
 
             <p>
-                Exploring memory, algorithms, data structures and
-                low-level programming through C and C++.
+                Blog that is an information hoard for Technology, AI, software development,
+                programming and digital ideas.
             </p>
 
-        </div>
+            <a
+                href="https://blog-spieler.vercel.app/"
+                class="blog-link"
+                target="_blank"
+            >
+                Visit site →
+            </a>
+
+        </article>
 
 
-        <div class="project">
+        <article class="blog-card">
 
-            <div class="project-icon">
-                R
+            <div class="blog-number">
+                02
             </div>
 
             <h3>
-                Research
+                Astroball Bounce 
             </h3>
 
             <p>
-                Research involving AI, software engineering,
-                requirements analysis and intelligent systems.
+               A game which is still a prototype but has an amzing user experience.
             </p>
 
-        </div>
+            <a
+                href="https://astroball-bounce.vercel.app/"
+                class="blog-link"
+                target="_blank"
+            >
+                Visit site →
+            </a>
+
+        </article>
 
 
-        
+        <article class="blog-card">
+
+            <div class="blog-number">
+                03
+            </div>
+
+            <h3>
+                SPEILWIRE
+            </h3>
+
+            <p>
+                A football-focused digital publication
+                covering matches, leagues and football news.
+            </p>
+
+            <a
+                href="https://sports-proj.vercel.app/"
+                class="blog-link"
+                target="_blank"
+            >
+                Visit site →
+            </a>
+
+        </article>
+
+
+        <article class="blog-card">
+
+            <div class="blog-number">
+                04
+            </div>
+
+            <h3>
+                AutoDisk
+            </h3>
+
+            <p>
+                A site where you find catalogue of exotic cars and Trucks.
+            </p>
+
+            <a
+                href="https://auto-disk.vercel.app/"
+                class="blog-link"
+                target="_blank"
+            >
+                Visit site →
+            </a>
+
+        </article>
+
     </div>
 
 </div>
@@ -1194,32 +1998,53 @@ footer {
      CONTACT
 ===================================================== -->
 
-<section id="contact">
+<section class="contact" id="contact">
 
 <div class="container">
 
-    <div class="contact-wrapper">
+    <div class="contact-box">
 
-        <div class="eyebrow">
-            Contact
+        <div class="contact-content">
+
+            <div class="eyebrow">
+                Let's Work Together
+            </div>
+
+            <h2>
+                Have an idea?
+                <br>
+                Let's build it.
+            </h2>
+
+            <p>
+
+                Got a project, freelance gig,
+                research idea or technical problem?
+                Send us a message and let's discuss
+                what can be built.
+
+            </p>
+
+
+            <a
+                href="mailto:basit1857msse@gmail.com"
+                class="btn btn-primary"
+            >
+                Start a Conversation
+            </a>
+
+
+            <br>
+
+
+            <a
+                href="mailto:basit1857msse@gmail.com"
+                class="email"
+            >
+                basit1857msse@gmail.com
+            </a>
+
         </div>
-
-        <h2>
-            Let's build<br>
-            something interesting.
-        </h2>
-
-        <p>
-            Have an idea, project, research opportunity or just want
-            to talk about technology? Feel free to reach out.
-        </p>
-
-        
-        <p class="contact-email" >
-
-            basit1857msse@gmail.com
-
-        </p>
 
     </div>
 
@@ -1227,96 +2052,32 @@ footer {
 
 </section>
 
+
 </main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-<div class="footer-inner">
-
-    <div>
-        © 2026 ABVersal All Rights Reserved.
-    </div>
-
-    <div class="socials">
-
-        <!-- Replace these -->
-
-        <a href="#" target="_blank">
-            GitHub
-        </a>
-
-        <a href="#" target="_blank">
-            LinkedIn
-        </a>
-
-        <a href="#" target="_blank">
-            facebook
-        </a>
-
-    </div>
-
-</div>
-
-</footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script>
 
-/*
-    Small SPA-style navigation enhancement.
-    The site is still a single HTML document.
-*/
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(link => {
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function(e){
 
-    link.addEventListener("click", function(e) {
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
 
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
-
-        if (!target) return;
-
+        if(!target) return;
         e.preventDefault();
-
         target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+            behavior:"smooth",
+
+            block:"start"
+
         });
 
     });
-
-});
-
-
-/*
-    Add a subtle navbar effect while scrolling.
-*/
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 50) {
-
-        navbar.style.background =
-            "rgba(7, 4, 10, 0.88)";
-
-    } else {
-
-        navbar.style.background =
-            "rgba(10, 6, 15, 0.72)";
-
-    }
 
 });
 
